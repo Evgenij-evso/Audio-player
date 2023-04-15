@@ -110,18 +110,18 @@ def stop():
     global ValueInfinit
     ValueInfinit = False
 
-button = customtkinter.CTkButton(master=app, width=50, height = 45, text="", image=image_play, command=PlayMusic, state=customtkinter.DISABLED)
-button_left = customtkinter.CTkButton(master=app, width=50, height = 45, text="", image=image_left, command=ArrowLeft, state=customtkinter.DISABLED)
-button_right = customtkinter.CTkButton(master=app, width=50, height = 45, text="", image=image_right, command=ArrowRight, state=customtkinter.DISABLED)
-button_open = customtkinter.CTkButton(master=app,width=50, height = 25,text='Open',text_color='#000' , command=OpenFinder)
+button = customtkinter.CTkButton(master=app, width=50, height = 45, text="", image=image_play, command=PlayMusic, state=customtkinter.DISABLED,fg_color='#52b69a')
+button_left = customtkinter.CTkButton(master=app, width=50, height = 45, text="", image=image_left, command=ArrowLeft, state=customtkinter.DISABLED,fg_color='#52b69a')
+button_right = customtkinter.CTkButton(master=app, width=50, height = 45, text="", image=image_right, command=ArrowRight, state=customtkinter.DISABLED,fg_color='#52b69a')
+button_open = customtkinter.CTkButton(master=app,width=50, height = 25,text='Open',text_color='#000', fg_color='#d9ed92' , command=OpenFinder)
 
 LabelLogo = customtkinter.CTkLabel(master=app, width=100, height = 100,text="", image=image_logo)
-LabelName = customtkinter.CTkLabel(master=app, text=f'')
+LabelName = customtkinter.CTkLabel(master=app, text=f'',text_color='#b5e48c')
 
-sc = customtkinter.CTkSlider(master=app,width=250, from_=0, to=1, number_of_steps=1,state=customtkinter.DISABLED)
+sc = customtkinter.CTkSlider(master=app,width=250, from_=0, to=1, number_of_steps=1,state=customtkinter.DISABLED,button_color='#99d98c',button_hover_color='#76c893')
 sc.set(0)
 
-LabelTime = customtkinter.CTkLabel(master=app,height = 4,text_color='#808080', text=f'{sc.get()}')
+LabelTime = customtkinter.CTkLabel(master=app,height = 4,text_color='#b5e48c', text=f'{sc.get()}')
 #Place
 #Button
 button.place(relx=0.5, rely=0.85, anchor=tkinter.CENTER)
