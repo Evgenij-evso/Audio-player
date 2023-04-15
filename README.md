@@ -15,11 +15,11 @@
 
 > ## P.S
 > ### Исползуемые библеотеки
-> Pillow
-> os-win
-> tinytag
-> customtkinter
-> tk
-> pygame
-> time
-> easygui
+> Pillow <br>
+> os-win<br>
+> tinytag<br>
+> customtkinter<br>
+> tk<br>
+> pygame<br>
+> time<br>
+> easygui<br>
