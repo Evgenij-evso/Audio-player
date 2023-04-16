@@ -23,6 +23,7 @@ nameSong = ''
 
 time_start = time.time()
 second = 0
+infinity_even = 0
 
 pygame.mixer.init()
 
@@ -59,6 +60,7 @@ def PlayMusic():
         if ValueMusic:
             pygame.mixer.music.unpause()
         else:
+            pygame.mixer.music.play(-1,sc.get())
             infinity_loop()
             ValueMusic = True
         IMAGE_PATH_PLAY = 'img/pause.png'
@@ -88,6 +90,14 @@ def MusicStop():
     ValueInfinit = False
     sc.set(0)
 
+def slider(f):
+    global second
+    LabelTime.configure(text=f'{int(sc.get())}')
+    if ft:
+        pygame.mixer.music.play(-1,sc.get())
+    else:
+        pass
+
 def infinity_loop():
     global second,ValueMusic,ValueInfinit
     LabelTime.configure(text=f'{int(sc.get())}')
@@ -98,7 +108,6 @@ def infinity_loop():
             second = int(sc.get())
             print(second)
             sc.set(second + 1)
-            pygame.mixer.music.play(-1,sc.get())
     else:
         print('stop')
     app.after(1000, infinity_loop)
@@ -118,7 +127,7 @@ button_open = customtkinter.CTkButton(master=app,width=50, height = 25,text='Ope
 LabelLogo = customtkinter.CTkLabel(master=app, width=100, height = 100,text="", image=image_logo)
 LabelName = customtkinter.CTkLabel(master=app, text=f'',text_color='#b5e48c')
 
-sc = customtkinter.CTkSlider(master=app,width=250, from_=0, to=1, number_of_steps=1,state=customtkinter.DISABLED,button_color='#99d98c',button_hover_color='#76c893')
+sc = customtkinter.CTkSlider(master=app,width=250, from_=0, to=1, number_of_steps=1,state=customtkinter.DISABLED,button_color='#99d98c',button_hover_color='#76c893',command=slider)
 sc.set(0)
 
 LabelTime = customtkinter.CTkLabel(master=app,height = 4,text_color='#b5e48c', text=f'{sc.get()}')
